@@ -67,7 +67,7 @@ function attackMonster(attackMode) {
       ? STRONG_ATTACK_VALUE
       : null;
   let logEvent =
-  attackMode === MODE_ATTACK
+    attackMode === MODE_ATTACK
       ? LOG_EVENT_PLAYER_ATTACK
       : attackMode === MODE_STRONG_ATTACK
       ? LOG_EVENT_STRONG_PLAYER_ATTACK
@@ -152,7 +152,16 @@ function reset() {
 }
 
 function printLogHandler() {
-  console.log(battleLog);
+  // for (let i = 0; i < battleLog.length; i++) {
+  //   console.log(battleLog[i]);
+  // }
+  let i = 0;
+  for (const batteLogEntry of battleLog) {
+    console.log(`#${i++}`);
+    for (const key in batteLogEntry) {
+      console.log(`${key}: ${batteLogEntry[key]}`);
+    }
+  }
 }
 
 const CLICK_EVENT = "click";
